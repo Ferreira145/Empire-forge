@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Empire Forge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="playButton">JOGAR</button>
+    
+    <button id="settingsButton"> CONFIGURAÇÕES</button>
+
+<button id="creditsButton">CRÉDITOS</button>
+
+<button id="musicButton">🔊 Música</button>
+
+<div id="settingsMenu" style="display:none;">
+
+<h1>Configurações</h1>
+
+<label>🎵 Volume da Música</label>
+<input type="range" id="musicVolume" min="0" max="100" value="50">
+
+<br><br>
+
+<label>🔊 Volume dos Efeitos</label>
+<input type="range" id="effectsVolume" min="0" max="100" value="50">
+
+<br><br>
+
+    <button id="backButton">Voltar</button>
+
+</div>
+
+
+<div id="creditsMenu" style="display:none;">
+
+    <h1>🏆 Créditos</h1>
+
+    <h2>🎮 Empire Forge</h2>
+
+    <p>Desenvolvedor:</p>
+    <p><b>Ferreira</b></p>
+
+    <br>
+
+    <p>💻 Programação:</p>
+    <p>Ferreira</p>
+
+    <p>🎨 Design e Interface:</p>
+    <p>Equipe Empire Forge</p>
+
+    <p>🎵 Música e Áudio:</p>
+    <p>Nature Forest Morning Serenity|AlexMorgan</p>
+
+    <p>🚗 Desenvolvimento do jogo:</p>
+    <p>Sistemas, menus e mecânicas criados do zero</p>
+
+    <br>
+
+    <h3>📌 Informações</h3>
+
+    <p>Versão: V1.0</p>
+    <p>Motor: HTML + CSS + JavaScript</p>
+    <p>Status: Em desenvolvimento</p>
+    <br>
+    <p>Obrigado por fazer parte dessa jornada! 🔥</p>
+
+    <button id="backCreditsButton">Voltar</button>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-image: url("imagens/menu.png.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Botões Configurações e Créditos */
+
+#settingsButton,
+#creditsButton {
+
+    margin-top:20px;
+
+    padding:15px 50px;
+
+    font-size:24px;
+
+    border-radius:15px;
+
+    border:2px solid white;
+
+    background:linear-gradient(
+        145deg,
+        #9a9a9a,
+        #555555,
+        #292929
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    box-shadow:
+    inset 0 2px 5px rgba(255,255,255,0.5),
+    0 6px 12px rgba(0,0,0,0.4);
+
+    transition:0.2s;
+
+    width:300px;
+}
+
+
+/* Quando passa o mouse */
+
+#settingsButton:hover,
+#creditsButton:hover {
+
+    background:linear-gradient(
+        145deg,
+        #ffffff,
+        #a8a8a8,
+        #666666
+    );
+
+    transform:scale(1.05);
+
+}
+
+</style>
+
+<audio id="clickSound" src="sons/click.mp3"></audio>
+
+<script>
+const clickSound = document.getElementById("clickSound");
+
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    });
+});
+</script>
+
+<audio id="menuMusic" src="sons/musica.mp3" loop autoplay></audio>
+
+<script>
+
+const button = document.getElementById("musicButton");
+
+let musicaLigada = false;
+
+if (backButton) {
+
+    backButton.onclick = function(){
+
+        settingsMenu.style.display = "none";
+
+    };
+
+}
+
+    if(musicaLigada){
+
+        music.pause();
+        button.innerHTML = "🔇 Música";
+
+        musicaLigada = false;
+
+    } else {
+
+        music.play();
+        button.innerHTML = "🔊 Música";
+
+        musicaLigada = true;
+
+    }
+
+
+</script>
+
+<div id="version">V1.0</div>
+
